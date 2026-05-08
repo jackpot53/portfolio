@@ -57,6 +57,14 @@ pnpm db:generate  # 마이그레이션 파일 생성
 pnpm db:studio    # Drizzle Studio GUI
 ```
 
+## Design System
+
+**UI 컴포넌트 구현 전 반드시 `docs/design/DESIGN.md`를 먼저 확인할 것.**
+
+- 컬러, 타이포그래피, 스페이싱, 컴포넌트 패턴 모두 이 파일이 기준
+- Tailwind 클래스 선택 시 DESIGN.md의 토큰/스케일 표를 따른다
+- 새 UI 패턴이 필요할 경우 DESIGN.md에 추가 후 구현한다
+
 ## TypeScript
 
 - `strict: true` 적용
