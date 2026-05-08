@@ -1,11 +1,13 @@
 import { siteData } from '@/lib/data'
 import Image from 'next/image'
+import DevLabel from '@/components/ui/DevLabel'
 
 export default function About() {
   const initials = siteData.name.charAt(0)
 
   return (
-    <section id="about" className="mx-auto max-w-[1100px] px-6 py-24">
+    <section id="about" className="relative mx-auto max-w-[1100px] px-6 py-24">
+      <DevLabel name="About" file="src/components/sections/About.tsx" />
       <h2 className="mb-12 text-4xl font-extrabold text-white">소개</h2>
       <div className="flex flex-col items-start gap-12 md:flex-row md:items-center">
         <div className="shrink-0">

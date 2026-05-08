@@ -1,8 +1,10 @@
 import { siteData } from '@/lib/data'
+import DevLabel from '@/components/ui/DevLabel'
 
 export default function Hero() {
   return (
     <section id="hero" className="relative flex min-h-screen items-center overflow-hidden">
+      <DevLabel name="Hero" file="src/components/sections/Hero.tsx" />
       <div
         aria-hidden
         className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-accent/10 blur-[120px]"

@@ -1,5 +1,6 @@
 import { siteData } from '@/lib/data'
 import Badge from '@/components/ui/Badge'
+import DevLabel from '@/components/ui/DevLabel'
 
 const CATEGORY_LABELS: Record<keyof typeof siteData.skills, string> = {
   languages: '언어',
@@ -10,7 +11,8 @@ const CATEGORY_LABELS: Record<keyof typeof siteData.skills, string> = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="bg-surface/50 py-24">
+    <section id="skills" className="relative bg-surface/50 py-24">
+      <DevLabel name="Skills" file="src/components/sections/Skills.tsx" />
       <div className="mx-auto max-w-[1100px] px-6">
         <h2 className="mb-12 text-4xl font-extrabold text-white">스킬</h2>
         <div className="grid gap-8 md:grid-cols-2">

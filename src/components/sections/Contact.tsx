@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { siteData } from '@/lib/data'
+import DevLabel from '@/components/ui/DevLabel'
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
@@ -13,7 +14,8 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="mx-auto max-w-[1100px] px-6 py-24">
+    <section id="contact" className="relative mx-auto max-w-[1100px] px-6 py-24">
+      <DevLabel name="Contact" file="src/components/sections/Contact.tsx" />
       <h2 className="mb-4 text-4xl font-extrabold text-white">연락처</h2>
       <p className="mb-10 text-lg text-gray-400">
         함께 일하고 싶으시다면 언제든지 연락 주세요.

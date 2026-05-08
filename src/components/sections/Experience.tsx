@@ -5,6 +5,7 @@ import { asc } from 'drizzle-orm'
 import TimelineItem from '@/components/ui/TimelineItem'
 import { formatPeriod } from '@/lib/format'
 import { deleteExperience } from '@/app/admin/experiences/actions'
+import DevLabel from '@/components/ui/DevLabel'
 
 export default async function Experience() {
   const rows = await db
@@ -13,7 +14,8 @@ export default async function Experience() {
     .orderBy(asc(experiences.sortOrder))
 
   return (
-    <section id="experience" className="bg-surface/50 py-24">
+    <section id="experience" className="relative bg-surface/50 py-24">
+      <DevLabel name="Experience" file="src/components/sections/Experience.tsx" />
       <div className="mx-auto max-w-[1100px] px-6">
         <div className="mb-12 flex items-center justify-between">
           <h2 className="text-4xl font-extrabold text-white">경력 / 학력</h2>
