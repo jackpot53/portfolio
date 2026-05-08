@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
+import DevLabel from '@/components/ui/DevLabel'
 
 const NAV_ITEMS = [
   { label: '소개', href: '#about' },
@@ -33,6 +34,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-border/50 bg-bg/80 backdrop-blur-sm">
+      <DevLabel name="Navbar" file="src/components/Navbar.tsx" />
       <div className="mx-auto flex max-w-[1100px] items-center justify-between px-6 py-4">
         <span className="font-bold text-white">포트폴리오</span>
         <ul className="flex gap-6">
