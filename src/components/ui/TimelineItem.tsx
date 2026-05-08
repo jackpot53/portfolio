@@ -1,31 +1,47 @@
-import type { Experience } from '@/lib/data'
-import { cn } from '@/lib/utils'
-import { Separator } from '@/components/ui/separator'
+import { Briefcase, GraduationCap } from 'lucide-react'
 
-type TimelineItemProps = {
-  item: Experience
+interface Item {
+  id: string
+  type: 'work' | 'education'
+  title: string
+  organization: string
+  period: string
+  description?: string
+}
+
+interface TimelineItemProps {
+  item: Item
   isLast?: boolean
 }
 
 export default function TimelineItem({ item, isLast = false }: TimelineItemProps) {
+  const Icon = item.type === 'work' ? Briefcase : GraduationCap
+
   return (
-    <div className="relative flex gap-6">
+    <div className="grid grid-cols-[148px_20px_1fr] items-start">
+
+      {/* 날짜 */}
+      <div className="pr-5 pt-4 text-right">
+        <span className="text-xs leading-relaxed text-gray-400 whitespace-nowrap">{item.period}</span>
+      </div>
+
+      {/* 중앙: 아이콘 도트 + 세로선 */}
       <div className="flex flex-col items-center">
-        <div className="mt-1.5 h-3 w-3 shrink-0 rounded-full bg-primary ring-2 ring-primary/30" />
-        {!isLast && <div className="mt-1 w-px flex-1 bg-border" />}
-      </div>
-      <div className={cn('pb-8 w-full', isLast && 'pb-0')}>
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="font-semibold text-foreground">{item.title}</span>
-          <span className="text-sm text-muted-foreground">·</span>
-          <span className="text-sm text-muted-foreground">{item.organization}</span>
+        <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-blue-600 mt-3.5">
+          <Icon className="size-3 text-white" />
         </div>
-        <p className="mt-0.5 text-xs text-primary">{item.period}</p>
-        {item.description && (
-          <p className="mt-1 text-sm text-muted-foreground">{item.description}</p>
-        )}
-        {!isLast && <Separator className="mt-6" />}
+        {!isLast && <div className="mt-2 min-h-[32px] w-px flex-1 bg-gray-200" />}
       </div>
+
+      {/* 내용 카드 */}
+      <div className={`ml-5 rounded-xl border border-gray-200 bg-white px-5 py-4 shadow-md ${isLast ? 'mb-0' : 'mb-8'}`}>
+        <h3 className="font-semibold text-gray-900 leading-snug">{item.title}</h3>
+        <p className="mt-0.5 text-sm text-blue-600">{item.organization}</p>
+        {item.description && (
+          <p className="mt-2 text-sm leading-relaxed text-gray-500">{item.description}</p>
+        )}
+      </div>
+
     </div>
   )
 }

@@ -18,6 +18,7 @@
   --color-ring: hsl(var(--ring));
   --radius: var(--radius-md);
   --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-section: 'Nanum Pen Script', cursive;
 }
 
 :root {
@@ -53,6 +54,38 @@ html {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: hsl(var(--secondary)); }
 ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+
+
+@keyframes wave {
+  0%        { transform: rotate(0deg); }
+  10%       { transform: rotate(14deg); }
+  20%       { transform: rotate(-8deg); }
+  30%       { transform: rotate(14deg); }
+  40%       { transform: rotate(-4deg); }
+  50%       { transform: rotate(10deg); }
+  60%, 100% { transform: rotate(0deg); }
+}
+
+.animate-wave {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 2.5s ease-in-out infinite;
+}
+
+@keyframes floatA {
+  0%, 100% { transform: translateY(0)    translateX(0); }
+  33%       { transform: translateY(-28px) translateX(12px); }
+  66%       { transform: translateY(18px)  translateX(-10px); }
+}
+
+@keyframes floatB {
+  0%, 100% { transform: translateY(0)    translateX(0); }
+  50%       { transform: translateY(22px)  translateX(-18px); }
+}
+
+.animate-float-a { animation: floatA 13s ease-in-out infinite; }
+.animate-float-b { animation: floatB 10s ease-in-out infinite; }
+.animate-float-c { animation: floatA 16s ease-in-out infinite 4s; }
 
 @keyframes fadeSlideUp {
   from { opacity: 0; transform: translateY(8px); }

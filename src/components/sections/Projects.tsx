@@ -1,6 +1,7 @@
 import { siteData } from '@/lib/data'
 import DevLabel from '@/components/ui/DevLabel'
 import SectionTitle from '@/components/ui/SectionTitle'
+import FadeUp from '@/components/ui/FadeUp'
 import { FolderOpen, Star, ExternalLink } from 'lucide-react'
 import ProjectSvg from '@/components/ui/ProjectSvg'
 
@@ -14,9 +15,13 @@ function GitHubIcon() {
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative mx-auto max-w-[1100px] px-6 py-24">
+    <section id="projects" className="relative overflow-hidden bg-white py-16">
       <DevLabel name="Projects" file="src/components/sections/Projects.tsx" />
-      <SectionTitle icon={FolderOpen} color="emerald">프로젝트</SectionTitle>
+      <div className="animate-float-b pointer-events-none absolute -left-40 top-1/4 size-[460px] rounded-full bg-emerald-100/25 blur-3xl" />
+      <div className="animate-float-a pointer-events-none absolute -right-40 bottom-1/3 size-[420px] rounded-full bg-green-50/30 blur-3xl" />
+      <div className="animate-float-c pointer-events-none absolute -left-20 bottom-10 size-[320px] rounded-full bg-teal-50/20 blur-3xl" />
+      <div className="mx-auto max-w-[1100px] px-6">
+        <FadeUp><SectionTitle icon={FolderOpen} color="emerald">프로젝트</SectionTitle></FadeUp>
 
       <div className="relative">
         {/* 타임라인 세로선 */}
@@ -24,7 +29,8 @@ export default function Projects() {
 
         <div className="space-y-10">
           {siteData.projects.map((project, index) => (
-            <div key={project.id} className="relative flex gap-8">
+            <FadeUp key={project.id} delay={index * 150}>
+            <div className="relative flex gap-8">
 
               {/* 타임라인 도트 */}
               <div className="relative z-10 flex shrink-0 flex-col items-center">
@@ -92,8 +98,10 @@ export default function Projects() {
               </div>
 
             </div>
+            </FadeUp>
           ))}
         </div>
+      </div>
       </div>
     </section>
   )

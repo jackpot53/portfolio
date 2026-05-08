@@ -23,7 +23,7 @@ export default function SectionTitle({ icon: Icon, color = 'blue', children }: S
       <div className={`flex size-10 shrink-0 items-center justify-center ${c.icon}`}>
         <Icon className="size-5" />
       </div>
-      <h2 className="text-4xl font-extrabold text-foreground">{children}</h2>
+      <h2 className="font-section text-3xl text-foreground">{children}</h2>
       <div className={`h-px flex-1 bg-gradient-to-r ${c.line} to-transparent`} />
     </div>
   )
