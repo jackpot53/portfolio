@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section id="about" className="relative mx-auto max-w-[1100px] px-6 py-24">
       <DevLabel name="About" file="src/components/sections/About.tsx" />
-      <h2 className="mb-12 text-4xl font-extrabold text-white">소개</h2>
+      <h2 className="mb-12 text-4xl font-extrabold text-foreground">소개</h2>
       <div className="flex flex-col items-start gap-12 md:flex-row md:items-center">
         <div className="shrink-0">
           {siteData.avatar ? (
@@ -20,17 +20,17 @@ export default function About() {
               className="rounded-2xl object-cover"
             />
           ) : (
-            <div className="flex h-[180px] w-[180px] items-center justify-center rounded-2xl bg-accent/20 text-5xl font-bold text-accent-light">
+            <div className="flex h-[180px] w-[180px] items-center justify-center rounded-2xl bg-primary/10 text-5xl font-bold text-primary">
               {initials}
             </div>
           )}
         </div>
         <div>
-          <p className="text-lg leading-relaxed text-gray-300">{siteData.bio}</p>
+          <p className="text-lg leading-relaxed text-muted-foreground">{siteData.bio}</p>
           <div className="mt-6 flex flex-wrap gap-4">
             <a
               href={`mailto:${siteData.email}`}
-              className="text-sm text-gray-400 transition-colors hover:text-accent-light"
+              className="text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               ✉ {siteData.email}
             </a>
@@ -38,7 +38,7 @@ export default function About() {
               href={siteData.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-gray-400 transition-colors hover:text-accent-light"
+              className="text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               GitHub ↗
             </a>
@@ -46,7 +46,7 @@ export default function About() {
               href={siteData.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm text-gray-400 transition-colors hover:text-accent-light"
+              className="text-sm text-muted-foreground transition-colors hover:text-primary"
             >
               LinkedIn ↗
             </a>
