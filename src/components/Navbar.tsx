@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import DevLabel from '@/components/ui/DevLabel'
+import { Button } from '@/components/ui/button'
 
 const NAV_ITEMS = [
   { label: '소개', href: '#about' },
@@ -33,10 +34,10 @@ export default function Navbar() {
   }, [])
 
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-border/50 bg-bg/80 backdrop-blur-sm">
+    <nav className="fixed top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-sm">
       <DevLabel name="Navbar" file="src/components/Navbar.tsx" />
       <div className="mx-auto flex max-w-[1100px] items-center justify-between px-6 py-4">
-        <span className="font-bold text-white">포트폴리오</span>
+        <span className="font-bold text-foreground">포트폴리오</span>
         <ul className="flex gap-6">
           {NAV_ITEMS.map(({ label, href }) => {
             const id = href.replace('#', '')
@@ -46,7 +47,9 @@ export default function Navbar() {
                   href={href}
                   className={cn(
                     'text-sm transition-colors',
-                    activeId === id ? 'text-accent-light' : 'text-gray-400 hover:text-white',
+                    activeId === id
+                      ? 'text-primary font-medium'
+                      : 'text-muted-foreground hover:text-foreground',
                   )}
                 >
                   {label}
@@ -55,6 +58,9 @@ export default function Navbar() {
             )
           })}
         </ul>
+        <Button variant="outline" size="sm" asChild>
+          <a href="#contact">연락하기</a>
+        </Button>
       </div>
     </nav>
   )
