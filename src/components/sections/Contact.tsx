@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { siteData } from '@/lib/data'
 import DevLabel from '@/components/ui/DevLabel'
 import { Button } from '@/components/ui/button'
+import SectionTitle from '@/components/ui/SectionTitle'
+import { Mail } from 'lucide-react'
 
 export default function Contact() {
   const [copied, setCopied] = useState(false)
@@ -17,7 +19,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative mx-auto max-w-[1100px] px-6 py-24">
       <DevLabel name="Contact" file="src/components/sections/Contact.tsx" />
-      <h2 className="mb-4 text-4xl font-extrabold text-foreground">연락처</h2>
+      <SectionTitle icon={Mail} color="rose">연락처</SectionTitle>
       <p className="mb-10 text-lg text-muted-foreground">
         함께 일하고 싶으시다면 언제든지 연락 주세요.
       </p>

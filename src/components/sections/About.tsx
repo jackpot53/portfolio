@@ -1,6 +1,8 @@
 import { siteData } from '@/lib/data'
 import Image from 'next/image'
 import DevLabel from '@/components/ui/DevLabel'
+import SectionTitle from '@/components/ui/SectionTitle'
+import { UserRound } from 'lucide-react'
 
 export default function About() {
   const initials = siteData.name.charAt(0)
@@ -8,25 +10,24 @@ export default function About() {
   return (
     <section id="about" className="relative mx-auto max-w-[1100px] px-6 py-24">
       <DevLabel name="About" file="src/components/sections/About.tsx" />
-      <h2 className="mb-12 text-4xl font-extrabold text-foreground">소개</h2>
+      <SectionTitle icon={UserRound} color="blue">소개</SectionTitle>
       <div className="flex flex-col items-start gap-12 md:flex-row md:items-center">
         <div className="shrink-0">
-          {siteData.avatar ? (
+          <div className="relative size-[180px] rounded-full ring-4 ring-primary/20 ring-offset-4 ring-offset-background overflow-hidden">
             <Image
-              src={siteData.avatar}
+              src="https://i.pinimg.com/736x/9d/99/b9/9d99b905a2fcc14e1e9a37e0ce6d17de.jpg"
               alt={siteData.name}
-              width={180}
-              height={180}
-              className="rounded-2xl object-cover"
+              fill
+              className="object-cover"
             />
-          ) : (
-            <div className="flex h-[180px] w-[180px] items-center justify-center rounded-2xl bg-primary/10 text-5xl font-bold text-primary">
-              {initials}
-            </div>
-          )}
+          </div>
         </div>
         <div>
-          <p className="text-lg leading-relaxed text-muted-foreground">{siteData.bio}</p>
+          <div className="space-y-4">
+            {siteData.bio.split('\n\n').map((paragraph, i) => (
+              <p key={i} className="text-lg leading-relaxed text-muted-foreground">{paragraph}</p>
+            ))}
+          </div>
           <div className="mt-6 flex flex-wrap gap-4">
             <a
               href={`mailto:${siteData.email}`}

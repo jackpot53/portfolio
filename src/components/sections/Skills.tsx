@@ -1,29 +1,67 @@
 import { siteData } from '@/lib/data'
-import { Badge } from '@/components/ui/badge'
 import DevLabel from '@/components/ui/DevLabel'
+import SectionTitle from '@/components/ui/SectionTitle'
+import { Zap, Code2, Layers, GitBranch, Cloud } from 'lucide-react'
+import { type LucideIcon } from 'lucide-react'
 
-const CATEGORY_LABELS: Record<keyof typeof siteData.skills, string> = {
-  languages: '언어',
-  frameworks: '프레임워크',
-  mlops: 'MLOps',
-  cloud: '클라우드',
-}
+const CATEGORIES: {
+  key: keyof typeof siteData.skills
+  label: string
+  icon: LucideIcon
+  color: string
+  description: string
+}[] = [
+  {
+    key: 'languages',
+    label: '언어',
+    icon: Code2,
+    color: 'text-blue-500 bg-blue-500/10',
+    description: 'Python을 주력으로 데이터 전처리, 모델 학습, API 개발까지 전반적으로 활용하며 SQL로 대용량 데이터 분석 업무를 수행했습니다.',
+  },
+  {
+    key: 'frameworks',
+    label: '프레임워크',
+    icon: Layers,
+    color: 'text-purple-500 bg-purple-500/10',
+    description: 'PyTorch·TensorFlow로 딥러닝 모델을 설계·학습하고, Hugging Face와 LangChain으로 LLM 기반 서비스를 구축한 경험이 있습니다.',
+  },
+  {
+    key: 'mlops',
+    label: 'MLOps',
+    icon: GitBranch,
+    color: 'text-emerald-500 bg-emerald-500/10',
+    description: 'MLflow로 실험을 관리하고 Docker·Kubernetes 기반의 모델 서빙 파이프라인을 구축했습니다. Airflow로 배치 학습 스케줄링도 운영했습니다.',
+  },
+  {
+    key: 'cloud',
+    label: '클라우드',
+    icon: Cloud,
+    color: 'text-orange-500 bg-orange-500/10',
+    description: 'AWS SageMaker로 모델 학습·배포 환경을 구성하고 GCP Vertex AI 파이프라인을 설계했습니다. S3·BigQuery를 통한 데이터 레이크 운영 경험이 있습니다.',
+  },
+]
 
 export default function Skills() {
   return (
     <section id="skills" className="relative bg-secondary py-24">
       <DevLabel name="Skills" file="src/components/sections/Skills.tsx" />
       <div className="mx-auto max-w-[1100px] px-6">
-        <h2 className="mb-12 text-4xl font-extrabold text-foreground">스킬</h2>
-        <div className="grid gap-8 md:grid-cols-2">
-          {(Object.keys(siteData.skills) as Array<keyof typeof siteData.skills>).map((category) => (
-            <div key={category}>
-              <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-primary">
-                {CATEGORY_LABELS[category]}
-              </h3>
+        <SectionTitle icon={Zap} color="purple">스킬</SectionTitle>
+        <div className="grid gap-6 md:grid-cols-2">
+          {CATEGORIES.map(({ key, label, icon: Icon, color, description }) => (
+            <div key={key} className="rounded-2xl border border-border bg-background p-6 shadow-sm">
+              <div className="mb-3 flex items-center gap-3">
+                <div className={`flex size-9 items-center justify-center rounded-lg ${color}`}>
+                  <Icon className="size-4" />
+                </div>
+                <h3 className="font-semibold text-foreground">{label}</h3>
+              </div>
+              <p className="mb-5 text-xs leading-relaxed text-muted-foreground">{description}</p>
               <div className="flex flex-wrap gap-2">
-                {siteData.skills[category].map((skill) => (
-                  <Badge key={skill} variant="secondary">{skill}</Badge>
+                {siteData.skills[key].map((skill) => (
+                  <span key={skill} className="text-sm font-medium text-muted-foreground/70 hover:text-primary transition-colors">
+                    #{skill}
+                  </span>
                 ))}
               </div>
             </div>

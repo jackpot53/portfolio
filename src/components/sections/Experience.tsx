@@ -7,6 +7,8 @@ import { formatPeriod } from '@/lib/format'
 import { deleteExperience } from '@/app/admin/experiences/actions'
 import DevLabel from '@/components/ui/DevLabel'
 import { Button } from '@/components/ui/button'
+import SectionTitle from '@/components/ui/SectionTitle'
+import { Briefcase } from 'lucide-react'
 
 export default async function Experience() {
   const rows = await db
@@ -18,9 +20,9 @@ export default async function Experience() {
     <section id="experience" className="relative bg-secondary py-24">
       <DevLabel name="Experience" file="src/components/sections/Experience.tsx" />
       <div className="mx-auto max-w-[1100px] px-6">
-        <div className="mb-12 flex items-center justify-between">
-          <h2 className="text-4xl font-extrabold text-foreground">경력 / 학력</h2>
-          <Button asChild variant="outline" size="sm">
+        <div className="flex items-center justify-between">
+          <SectionTitle icon={Briefcase} color="orange">경력 / 학력</SectionTitle>
+          <Button asChild variant="outline" size="sm" className="shrink-0">
             <Link href="/admin/experiences/new">+ 경력사항 생성</Link>
           </Button>
         </div>
