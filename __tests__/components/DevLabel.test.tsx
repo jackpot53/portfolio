@@ -46,4 +46,24 @@ describe('DevLabel', () => {
     )
     expect(screen.getByText('✓ copied')).toBeInTheDocument()
   })
+
+  it('1.5초 후 copied 피드백이 원래 이름으로 돌아온다', async () => {
+    jest.useFakeTimers()
+    Object.defineProperty(process.env, 'NODE_ENV', {
+      value: 'development',
+      configurable: true,
+    })
+    Object.assign(navigator, { clipboard: { writeText: jest.fn().mockResolvedValue(undefined) } })
+
+    render(<DevLabel name="Skills" file="src/components/sections/Skills.tsx" />)
+    const btn = screen.getByRole('button', { name: 'Skills' })
+
+    await act(async () => { fireEvent.click(btn) })
+    expect(screen.getByText('✓ copied')).toBeInTheDocument()
+
+    act(() => { jest.advanceTimersByTime(1500) })
+    expect(screen.getByRole('button', { name: 'Skills' })).toBeInTheDocument()
+
+    jest.useRealTimers()
+  })
 })
