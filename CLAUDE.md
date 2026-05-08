@@ -62,3 +62,16 @@ pnpm db:studio    # Drizzle Studio GUI
 - `strict: true` 적용
 - `any` 사용 금지 — 타입 불명확 시 `unknown` 후 narrowing
 - 컴포넌트 props는 `interface`로 정의 (type alias 아닌 interface 선호)
+
+## DevLabel 규칙
+
+새 컴포넌트를 생성할 때 반드시 DevLabel을 추가한다.
+
+1. `import DevLabel from '@/components/ui/DevLabel'`
+2. 최상위 JSX 요소의 **첫 번째 자식**으로 삽입:
+   ```tsx
+   <DevLabel name="컴포넌트명" file="src/components/경로/파일명.tsx" />
+   ```
+3. 최상위 JSX 요소에 `relative` 클래스가 없으면 추가한다.
+
+DevLabel은 `NODE_ENV === 'development'`일 때만 렌더링되므로 프로덕션에 영향 없음.
