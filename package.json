@@ -12,7 +12,8 @@
     "type-check": "tsc --noEmit",
     "db:push": "drizzle-kit push",
     "db:studio": "drizzle-kit studio",
-    "db:generate": "drizzle-kit generate"
+    "db:generate": "drizzle-kit generate",
+    "db:seed": "tsx src/db/seed.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",
@@ -41,6 +42,7 @@
     "jest-environment-jsdom": "^30.4.0",
     "tailwindcss": "^4",
     "ts-jest": "^29.4.9",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
