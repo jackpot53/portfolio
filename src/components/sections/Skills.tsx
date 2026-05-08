@@ -1,5 +1,5 @@
 import { siteData } from '@/lib/data'
-import Badge from '@/components/ui/Badge'
+import Badge from '@/components/ui/badge'
 import DevLabel from '@/components/ui/DevLabel'
 
 const CATEGORY_LABELS: Record<keyof typeof siteData.skills, string> = {

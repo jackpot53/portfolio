@@ -1,6 +1,6 @@
 import type { Project } from '@/lib/data'
 import { cn } from '@/lib/utils'
-import Badge from './Badge'
+import Badge from './badge'
 
 type ProjectCardProps = {
   project: Project
