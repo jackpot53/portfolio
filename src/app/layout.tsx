@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, Geist } from 'next/font/google'
+import Script from 'next/script'
 import Navbar from '@/components/Navbar'
 import './globals.css'
 import { cn } from "@/lib/utils";
@@ -22,6 +23,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-bg text-white antialiased">
         <Navbar />
         {children}
+        <Script
+          src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js"
+          type="module"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   )

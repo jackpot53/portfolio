@@ -57,10 +57,13 @@ function Button({
   let render: ButtonPrimitive.Props["render"] | undefined
   let renderedChildren = children
 
+  let isNativeButton = true
+
   if (asChild && isValidElement(children)) {
     const { children: childChildren, ...childProps } = children.props as Record<string, unknown>
     render = createElement(children.type as string, childProps)
     renderedChildren = childChildren as ReactNode
+    isNativeButton = children.type === 'button'
   }
 
   return (
@@ -68,6 +71,7 @@ function Button({
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
       render={render}
+      nativeButton={isNativeButton}
       {...props}
     >
       {renderedChildren}

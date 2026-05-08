@@ -53,3 +53,37 @@ html {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: hsl(var(--secondary)); }
 ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nameShimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes nameGlow {
+  0%, 100% { text-shadow: 0 0 8px hsl(221 100% 56% / 0.3), 0 0 24px hsl(221 100% 56% / 0.1); }
+  50%       { text-shadow: 0 0 16px hsl(221 100% 56% / 0.7), 0 0 48px hsl(221 100% 56% / 0.3); }
+}
+
+.hero-name {
+  background: linear-gradient(
+    90deg,
+    hsl(221 100% 56%) 0%,
+    hsl(221 100% 56%) 30%,
+    hsl(0 0% 100%) 48%,
+    hsl(221 100% 80%) 52%,
+    hsl(221 100% 56%) 70%,
+    hsl(221 100% 40%) 100%
+  );
+  background-size: 250% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation:
+    nameShimmer 3s linear infinite,
+    nameGlow 3s ease-in-out infinite;
+}
