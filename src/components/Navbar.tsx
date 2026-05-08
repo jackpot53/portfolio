@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import DevLabel from '@/components/ui/DevLabel'
 import { Button } from '@/components/ui/button'
+import { Code2 } from 'lucide-react'
 
 const NAV_ITEMS = [
   { label: '소개', href: '#about' },
@@ -37,7 +38,10 @@ export default function Navbar() {
     <nav className="fixed top-0 z-50 w-full border-b border-border bg-background/90 backdrop-blur-sm">
       <DevLabel name="Navbar" file="src/components/Navbar.tsx" />
       <div className="mx-auto flex max-w-[1100px] items-center justify-between px-6 py-4">
-        <span className="font-bold text-foreground">포트폴리오</span>
+        <span className="flex items-center gap-1.5 font-bold text-foreground">
+          <Code2 className="size-4 text-primary" />
+          포트폴리오
+        </span>
         <ul className="flex gap-6">
           {NAV_ITEMS.map(({ label, href }) => {
             const id = href.replace('#', '')
