@@ -4,6 +4,7 @@ import Skills from '@/components/sections/Skills'
 import Projects from '@/components/sections/Projects'
 import Experience from '@/components/sections/Experience'
 import Contact from '@/components/sections/Contact'
+import Jobs from '@/components/sections/Jobs'
 
 function Divider() {
   return (
@@ -29,6 +30,8 @@ export default function Home() {
       <Experience />
       <Divider />
       <Contact />
+      <Divider />
+      <Jobs />
     </main>
   )
 }

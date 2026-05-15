@@ -1,7 +1,17 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pnpm dev *)"
+      "Bash(pnpm dev *)",
+      "Bash(pnpm type-check *)",
+      "Bash(curl -s 'http://localhost:3001/api/jobs')",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s 'http://localhost:3000/api/jobs')",
+      "Bash(curl -s --request GET --url 'https://jsearch.p.rapidapi.com/search-v2?query=AI+ML+engineer+jobs&num_pages=1&country=us&date_posted=month' --header 'Content-Type: application/json' --header 'x-rapidapi-host: jsearch.p.rapidapi.com' --header 'x-rapidapi-key: 79b7ef8a16msh52c8916e5151fc1p122ecdjsn86329b2805e7')",
+      "Bash(curl -s 'http://localhost:3000/api/jobs?country=us')",
+      "Bash(python3 -c ' *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
